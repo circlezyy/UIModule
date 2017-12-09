@@ -18,9 +18,10 @@ public class TestUIView : UIBaseView {
         count +=deltaTime;
         if (this.label!=null)
         {
-            this.label.text = count.ToString();
+            //this.label.text = count.ToString();
+           // Debug.Log("Update:" + count);
         }
-        Debug.Log("Update:" + count);
+       
     }
     
 }

@@ -18,11 +18,11 @@ public class UIBaseView {
     }
     protected bool IsActive;
    protected   GameObject sourcePrefab;
-   protected  CanvasRenderer render;
+   protected  CanvasGroup render;
     public void Init(GameObject _root)
     {
         this.sourcePrefab = _root;
-        this.render = sourcePrefab.GetComponent<CanvasRenderer>();
+        this.render = sourcePrefab.GetComponent<CanvasGroup>();
         InitUI();
         OnActive();
     }
@@ -36,7 +36,7 @@ public class UIBaseView {
         IsActive = true;
         if (this.render!=null)
         {
-            this.render.cull = !IsActive;
+            this.render.alpha = IsActive?1:0;
         }
     }
     public void Update(float deltaTime)
@@ -55,7 +55,7 @@ public class UIBaseView {
         IsActive = false;
         if (this.render!=null)
         {
-            this.render.cull = !IsActive;
+            this.render.alpha = IsActive?1:0;
         }
     }
 }
