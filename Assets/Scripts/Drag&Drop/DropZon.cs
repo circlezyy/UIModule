@@ -7,17 +7,17 @@ public class DropZon : MonoBehaviour,IPointerEnterHandler,IDropHandler,IPointerE
 
 	public void OnPointerEnter(PointerEventData eventdata)
     {
-        Debug.Log("PointerEnter:"+this.gameObject.name);
-       
-    }
-    public void OnDrop(PointerEventData eventdata)
-    {
-        Debug.Log("PointerDrop"+ this.gameObject.name);
-
+       // Debug.Log("PointerEnter:"+this.gameObject.name);
         if (eventdata.pointerDrag != null)
         {
             eventdata.pointerDrag.GetComponent<Draggble>().parentToReturn = this.transform;
         }
+    }
+    public void OnDrop(PointerEventData eventdata)
+    {
+        //Debug.Log("PointerDrop"+ this.gameObject.name);
+
+        
     }
     public void OnPointerExit(PointerEventData eventdata)
     {
